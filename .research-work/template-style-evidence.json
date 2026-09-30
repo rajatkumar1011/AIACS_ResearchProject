@@ -1,0 +1,69 @@
+{
+  "input": "C:\\Users\\Rajat Kumar\\Desktop\\KJSSE\\SEM-V\\HO-AIACS Lab\\Research Paper\\IJSRP-paper-format.docx",
+  "fonts_by_char_count": {
+    "Book Antiqua": 160
+  },
+  "direct_run_formatting_runs": 239,
+  "direct_paragraph_formatting_paragraphs": 12,
+  "heading_like_paragraphs_not_heading_style": [],
+  "examples": {
+    "direct_paragraph_formatting": [
+      {
+        "para_index": 1,
+        "text": "Explainable AI for Cybersecurity: Interpreting Machine Learning Decisions in Intrusion Detection Systems",
+        "style": "Heading 5"
+      },
+      {
+        "para_index": 2,
+        "text": "Rajat Kumar*, Sadhil Madan**",
+        "style": "Heading 5"
+      },
+      {
+        "para_index": 15,
+        "text": "Introduction",
+        "style": "Normal"
+      },
+      {
+        "para_index": 16,
+        "text": "T",
+        "style": "Normal"
+      },
+      {
+        "para_index": 28,
+        "text": "IDENTIFY, RESEARCH AND COLLECT IDEA",
+        "style": "Normal"
+      }
+    ],
+    "direct_run_formatting": [
+      {
+        "para_index": 1,
+        "run_text": "Explainable AI for Cybersecurity: Interpreting Machine Learning Decisions in Int",
+        "style": "Heading 5"
+      },
+      {
+        "para_index": 2,
+        "run_text": "Rajat Kumar",
+        "style": "Heading 5"
+      },
+      {
+        "para_index": 2,
+        "run_text": ", ",
+        "style": "Heading 5"
+      },
+      {
+        "para_index": 2,
+        "run_text": "Sadhil Madan",
+        "style": "Heading 5"
+      },
+      {
+        "para_index": 4,
+        "run_text": "* ",
+        "style": "Normal"
+      }
+    ]
+  },
+  "notes": [
+    "Direct formatting is not always wrong, but it often causes inconsistent output when templates change.",
+    "Heading-like paragraphs not using Heading styles can break TOC and accessibility."
+  ]
+}

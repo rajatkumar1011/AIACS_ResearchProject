@@ -1,0 +1,971 @@
+{
+  "protocol": {
+    "seed": 42,
+    "training_rows": 175341,
+    "test_rows": 82332,
+    "features": 42,
+    "categorical_features": [
+      "proto",
+      "service",
+      "state"
+    ],
+    "validation_fraction": 0.2,
+    "decision_threshold": 0.5,
+    "lime_samples": 1500,
+    "shap_mode": "TreeSHAP approximate"
+  },
+  "environment": {
+    "python": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "sklearn": "1.9.1",
+    "xgboost": "3.4.1",
+    "shap": "0.52.0"
+  },
+  "tuning": {
+    "Random Forest": [
+      {
+        "selected_parameters": {
+          "bootstrap": true,
+          "ccp_alpha": 0.0,
+          "class_weight": "balanced_subsample",
+          "criterion": "gini",
+          "max_depth": null,
+          "max_features": "sqrt",
+          "max_leaf_nodes": null,
+          "max_samples": null,
+          "min_impurity_decrease": 0.0,
+          "min_samples_leaf": 2,
+          "min_samples_split": 2,
+          "min_weight_fraction_leaf": 0.0,
+          "monotonic_cst": null,
+          "n_estimators": 220,
+          "n_jobs": -1,
+          "oob_score": false,
+          "random_state": 42,
+          "verbose": 0,
+          "warm_start": false
+        }
+      }
+    ],
+    "XGBoost": [
+      {
+        "selected_parameters": {
+          "objective": "binary:logistic",
+          "base_score": null,
+          "booster": null,
+          "callbacks": null,
+          "colsample_bylevel": null,
+          "colsample_bynode": null,
+          "colsample_bytree": 0.85,
+          "device": null,
+          "early_stopping_rounds": null,
+          "enable_categorical": true,
+          "eval_metric": "logloss",
+          "feature_types": null,
+          "feature_weights": null,
+          "gamma": null,
+          "grow_policy": null,
+          "importance_type": null,
+          "interaction_constraints": null,
+          "learning_rate": 0.08,
+          "max_bin": null,
+          "max_cat_threshold": null,
+          "max_cat_to_onehot": null,
+          "max_delta_step": null,
+          "max_depth": 6,
+          "max_leaves": null,
+          "min_child_weight": 1,
+          "missing": NaN,
+          "monotone_constraints": null,
+          "multi_strategy": null,
+          "n_estimators": 260,
+          "n_jobs": -1,
+          "num_parallel_tree": null,
+          "random_state": 42,
+          "reg_alpha": null,
+          "reg_lambda": 1.0,
+          "sampling_method": null,
+          "scale_pos_weight": null,
+          "subsample": 0.85,
+          "tree_method": null,
+          "validate_parameters": null,
+          "verbosity": null
+        }
+      }
+    ]
+  },
+  "metrics": {
+    "Random Forest": {
+      "accuracy": 0.8872248943302725,
+      "precision": 0.8402522134752978,
+      "recall": 0.981845054266302,
+      "f1": 0.9055471348788948,
+      "fpr": 0.2287027027027027,
+      "roc_auc": 0.9840018443507479,
+      "pr_auc": 0.9880469494090124,
+      "tn": 28538,
+      "fp": 8462,
+      "fn": 823,
+      "tp": 44509,
+      "threshold": 0.5,
+      "train_seconds": null,
+      "prediction_seconds": 0.6920764999958919,
+      "test_n": 82332
+    },
+    "XGBoost": {
+      "accuracy": 0.8745323810911918,
+      "precision": 0.8232187049828242,
+      "recall": 0.9832789199682344,
+      "f1": 0.8961579444701341,
+      "fpr": 0.2587027027027027,
+      "roc_auc": 0.983991786721867,
+      "pr_auc": 0.988369653369693,
+      "tn": 27428,
+      "fp": 9572,
+      "fn": 758,
+      "tp": 44574,
+      "threshold": 0.5,
+      "train_seconds": null,
+      "prediction_seconds": 0.307657699995616,
+      "test_n": 82332
+    }
+  },
+  "local_examples": {
+    "Random Forest": [
+      {
+        "outcome": "TP",
+        "row": 4254,
+        "true": 1,
+        "pred": 1,
+        "probability": 0.9958877833505877,
+        "shap_top": [
+          [
+            "sload",
+            0.061661292235502874
+          ],
+          [
+            "state",
+            0.03919391249423688
+          ],
+          [
+            "rate",
+            0.03658611578345097
+          ],
+          [
+            "ct_dst_sport_ltm",
+            0.03595685636041052
+          ],
+          [
+            "sttl",
+            0.03409207746502127
+          ]
+        ],
+        "lime_top": [
+          [
+            "proto",
+            0.18447308404681118
+          ],
+          [
+            "sttl",
+            0.13656693173533285
+          ],
+          [
+            "ct_state_ttl",
+            0.06201555665422079
+          ],
+          [
+            "dttl",
+            -0.04556651506772372
+          ],
+          [
+            "state",
+            0.03969131197953529
+          ]
+        ],
+        "lime_fidelity": 0.6199934865133232
+      },
+      {
+        "outcome": "TP",
+        "row": 4402,
+        "true": 1,
+        "pred": 1,
+        "probability": 0.9983421162086653,
+        "shap_top": [
+          [
+            "sload",
+            0.06747974197509311
+          ],
+          [
+            "state",
+            0.0436834133037639
+          ],
+          [
+            "sttl",
+            0.03732079156901449
+          ],
+          [
+            "rate",
+            0.03687933138329813
+          ],
+          [
+            "smean",
+            0.030200501915162273
+          ]
+        ],
+        "lime_top": [
+          [
+            "sttl",
+            0.13689918819206223
+          ],
+          [
+            "proto",
+            0.12210030918076178
+          ],
+          [
+            "ct_state_ttl",
+            0.06612813010548804
+          ],
+          [
+            "dttl",
+            -0.045834900402951524
+          ],
+          [
+            "state",
+            0.04532727921447293
+          ]
+        ],
+        "lime_fidelity": 0.6374767130865044
+      },
+      {
+        "outcome": "TP",
+        "row": 4626,
+        "true": 1,
+        "pred": 1,
+        "probability": 0.7944442590532571,
+        "shap_top": [
+          [
+            "ct_dst_sport_ltm",
+            -0.0778183080530508
+          ],
+          [
+            "service",
+            -0.05754319006174653
+          ],
+          [
+            "ct_dst_ltm",
+            0.04458193533734854
+          ],
+          [
+            "state",
+            0.03966655736415565
+          ],
+          [
+            "proto",
+            -0.03617650964376769
+          ]
+        ],
+        "lime_top": [
+          [
+            "sttl",
+            0.14078796543223188
+          ],
+          [
+            "ct_state_ttl",
+            0.06787639384442191
+          ],
+          [
+            "is_sm_ips_ports",
+            0.05386760692537074
+          ],
+          [
+            "dttl",
+            -0.04216447291136143
+          ],
+          [
+            "state",
+            0.04000174532564464
+          ]
+        ],
+        "lime_fidelity": 0.6557565374789234
+      },
+      {
+        "outcome": "TP",
+        "row": 9505,
+        "true": 1,
+        "pred": 1,
+        "probability": 0.9596996977591278,
+        "shap_top": [
+          [
+            "ct_dst_src_ltm",
+            0.12701867635273822
+          ],
+          [
+            "service",
+            0.08451634012747533
+          ],
+          [
+            "ct_srv_dst",
+            -0.0629915864122296
+          ],
+          [
+            "sttl",
+            0.05420336810791187
+          ],
+          [
+            "ct_state_ttl",
+            0.03970950488278953
+          ]
+        ],
+        "lime_top": [
+          [
+            "sttl",
+            0.1326161175635968
+          ],
+          [
+            "dttl",
+            0.08523452973859814
+          ],
+          [
+            "ct_state_ttl",
+            -0.0640783545968671
+          ],
+          [
+            "proto",
+            -0.0438182702542388
+          ],
+          [
+            "state",
+            -0.039210723507712916
+          ]
+        ],
+        "lime_fidelity": 0.6980275868391566
+      },
+      {
+        "outcome": "TP",
+        "row": 19827,
+        "true": 1,
+        "pred": 1,
+        "probability": 0.9997344530519515,
+        "shap_top": [
+          [
+            "sload",
+            0.04615007042491234
+          ],
+          [
+            "rate",
+            0.032381720593583366
+          ],
+          [
+            "state",
+            0.03109028901918263
+          ],
+          [
+            "sttl",
+            0.03059227519503305
+          ],
+          [
+            "service",
+            0.028270970709055602
+          ]
+        ],
+        "lime_top": [
+          [
+            "sttl",
+            0.1342665597564207
+          ],
+          [
+            "ct_state_ttl",
+            0.07091215214335649
+          ],
+          [
+            "state",
+            0.041147197243233555
+          ],
+          [
+            "dttl",
+            -0.03644981481344829
+          ],
+          [
+            "sloss",
+            0.031570007231781855
+          ]
+        ],
+        "lime_fidelity": 0.6199122962632196
+      },
+      {
+        "outcome": "TP",
+        "row": 20088,
+        "true": 1,
+        "pred": 1,
+        "probability": 0.997807526486467,
+        "shap_top": [
+          [
+            "sload",
+            0.04617417253232662
+          ],
+          [
+            "service",
+            0.034626810829591785
+          ],
+          [
+            "rate",
+            0.03265262794657636
+          ],
+          [
+            "ct_dst_sport_ltm",
+            0.031273397146371625
+          ],
+          [
+            "state",
+            0.03124883182762637
+          ]
+        ],
+        "lime_top": [
+          [
+            "sttl",
+            0.1394842100870846
+          ],
+          [
+            "ct_state_ttl",
+            0.05962355634979853
+          ],
+          [
+            "state",
+            0.04286340165362989
+          ],
+          [
+            "swin",
+            0.04125229277371341
+          ],
+          [
+            "dttl",
+            -0.03770960884556957
+          ]
+        ],
+        "lime_fidelity": 0.6371358057457153
+      },
+      {
+        "outcome": "TP",
+        "row": 44299,
+        "true": 1,
+        "pred": 1,
+        "probability": 0.5232658373638986,
+        "shap_top": [
+          [
+            "ct_dst_src_ltm",
+            0.16547251748412783
+          ],
+          [
+            "sttl",
+            0.05865469901687875
+          ],
+          [
+            "ct_srv_dst",
+            -0.05772913009145046
+          ],
+          [
+            "dmean",
+            -0.055772444150360895
+          ],
+          [
+            "dbytes",
+            -0.04905386015987814
+          ]
+        ],
+        "lime_top": [
+          [
+            "sttl",
+            0.13917693944699336
+          ],
+          [
+            "dttl",
+            0.08259006923364816
+          ],
+          [
+            "ct_state_ttl",
+            -0.0629388047089367
+          ],
+          [
+            "proto",
+            -0.038467915412688646
+          ],
+          [
+            "state",
+            -0.0382109420840568
+          ]
+        ],
+        "lime_fidelity": 0.7102674859911473
+      },
+      {
+        "outcome": "TP",
+        "row": 50285,
+        "true": 1,
+        "pred": 1,
+        "probability": 0.9996253399414224,
+        "shap_top": [
+          [
+            "service",
+            0.054530163702703346
+          ],
+          [
+            "sload",
+            0.052668806857244434
+          ],
+          [
+            "state",
+            0.04560486868105188
+          ],
+          [
+            "ct_dst_sport_ltm",
+            0.042780722604060385
+          ],
+          [
+            "sttl",
+            0.03708423411735443
+          ]
+        ],
+        "lime_top": [
+          [
+            "sttl",
+            0.13860473375017188
+          ],
+          [
+            "ct_state_ttl",
+            0.06878991508428003
+          ],
+          [
+            "ct_ftp_cmd",
+            -0.046199049611653324
+          ],
+          [
+            "swin",
+            0.04301237915081073
+          ],
+          [
+            "state",
+            0.041573840746483945
+          ]
+        ],
+        "lime_fidelity": 0.6326954047466602
+      }
+    ],
+    "XGBoost": [
+      {
+        "outcome": "TP",
+        "row": 4236,
+        "true": 1,
+        "pred": 1,
+        "probability": 0.9965687990188599,
+        "shap_top": [
+          [
+            "proto",
+            -2.6366531923413277
+          ],
+          [
+            "service",
+            1.772357608191669
+          ],
+          [
+            "dbytes",
+            -1.4449132680892944
+          ],
+          [
+            "sttl",
+            1.417785882949829
+          ],
+          [
+            "response_body_len",
+            1.048703670501709
+          ]
+        ],
+        "lime_top": [
+          [
+            "sttl",
+            0.7270385007172835
+          ],
+          [
+            "proto",
+            0.17929747994611506
+          ],
+          [
+            "is_sm_ips_ports",
+            0.060932278340989264
+          ],
+          [
+            "dur",
+            -0.04715166335561147
+          ],
+          [
+            "service",
+            -0.03885630848967374
+          ]
+        ],
+        "lime_fidelity": 0.7527203750287473
+      },
+      {
+        "outcome": "TP",
+        "row": 4383,
+        "true": 1,
+        "pred": 1,
+        "probability": 0.9998801946640015,
+        "shap_top": [
+          [
+            "proto",
+            -3.107537142932415
+          ],
+          [
+            "service",
+            1.9377397494390607
+          ],
+          [
+            "dbytes",
+            -1.5140676498413086
+          ],
+          [
+            "sttl",
+            1.4080383777618408
+          ],
+          [
+            "response_body_len",
+            0.943398654460907
+          ]
+        ],
+        "lime_top": [
+          [
+            "sttl",
+            0.7160712002196554
+          ],
+          [
+            "dur",
+            0.1985643289723353
+          ],
+          [
+            "is_ftp_login",
+            -0.050366981420058236
+          ],
+          [
+            "ct_dst_sport_ltm",
+            -0.047759761183788725
+          ],
+          [
+            "response_body_len",
+            0.02853412717329791
+          ]
+        ],
+        "lime_fidelity": 0.8044802631047492
+      },
+      {
+        "outcome": "TP",
+        "row": 4604,
+        "true": 1,
+        "pred": 1,
+        "probability": 0.9998155236244202,
+        "shap_top": [
+          [
+            "proto",
+            -2.5858044028282166
+          ],
+          [
+            "service",
+            1.8495914237573743
+          ],
+          [
+            "dbytes",
+            -1.477837085723877
+          ],
+          [
+            "sttl",
+            1.4080383777618408
+          ],
+          [
+            "response_body_len",
+            0.943398654460907
+          ]
+        ],
+        "lime_top": [
+          [
+            "sttl",
+            0.7305653119871837
+          ],
+          [
+            "dur",
+            0.2176308998034741
+          ],
+          [
+            "ct_dst_sport_ltm",
+            -0.05831133557076972
+          ],
+          [
+            "service",
+            -0.04216220667162249
+          ],
+          [
+            "is_sm_ips_ports",
+            0.035286711679562266
+          ]
+        ],
+        "lime_fidelity": 0.8086063243643079
+      },
+      {
+        "outcome": "TP",
+        "row": 9474,
+        "true": 1,
+        "pred": 1,
+        "probability": 0.9992613196372986,
+        "shap_top": [
+          [
+            "proto",
+            -3.3590009212493896
+          ],
+          [
+            "service",
+            1.5142182111740112
+          ],
+          [
+            "sttl",
+            1.3263583183288574
+          ],
+          [
+            "response_body_len",
+            1.3061349391937256
+          ],
+          [
+            "ct_srv_src",
+            0.9887845516204834
+          ]
+        ],
+        "lime_top": [
+          [
+            "sttl",
+            -0.7334583527162607
+          ],
+          [
+            "dur",
+            -0.0869927202531478
+          ],
+          [
+            "is_sm_ips_ports",
+            0.0588158042301957
+          ],
+          [
+            "sbytes",
+            0.046400945384407824
+          ],
+          [
+            "smean",
+            -0.03648709090038753
+          ]
+        ],
+        "lime_fidelity": 0.7700905239489702
+      },
+      {
+        "outcome": "TP",
+        "row": 19808,
+        "true": 1,
+        "pred": 1,
+        "probability": 0.9999538660049438,
+        "shap_top": [
+          [
+            "proto",
+            -2.9218692472204566
+          ],
+          [
+            "service",
+            2.0067932568490505
+          ],
+          [
+            "dbytes",
+            -1.4655652046203613
+          ],
+          [
+            "sttl",
+            1.4080383777618408
+          ],
+          [
+            "ct_dst_sport_ltm",
+            1.3854634761810303
+          ]
+        ],
+        "lime_top": [
+          [
+            "sttl",
+            0.73387204218138
+          ],
+          [
+            "dur",
+            0.21759664086943434
+          ],
+          [
+            "service",
+            0.06264151455432386
+          ],
+          [
+            "sbytes",
+            -0.04071936496426216
+          ],
+          [
+            "dttl",
+            0.03647927646885214
+          ]
+        ],
+        "lime_fidelity": 0.8112664781947458
+      },
+      {
+        "outcome": "TP",
+        "row": 20069,
+        "true": 1,
+        "pred": 1,
+        "probability": 0.9999730587005615,
+        "shap_top": [
+          [
+            "proto",
+            -2.9218692472204566
+          ],
+          [
+            "service",
+            1.9618428945541382
+          ],
+          [
+            "ct_dst_sport_ltm",
+            1.5208266973495483
+          ],
+          [
+            "dbytes",
+            -1.508185863494873
+          ],
+          [
+            "sttl",
+            1.4080383777618408
+          ]
+        ],
+        "lime_top": [
+          [
+            "sttl",
+            0.7289916041078908
+          ],
+          [
+            "dur",
+            0.19042476975102948
+          ],
+          [
+            "service",
+            0.0446669187038605
+          ],
+          [
+            "is_ftp_login",
+            -0.03642954319577675
+          ],
+          [
+            "sbytes",
+            -0.0338924245512093
+          ]
+        ],
+        "lime_fidelity": 0.8086060431956348
+      },
+      {
+        "outcome": "TP",
+        "row": 44283,
+        "true": 1,
+        "pred": 1,
+        "probability": 0.9973673224449158,
+        "shap_top": [
+          [
+            "proto",
+            -3.4148265048861504
+          ],
+          [
+            "service",
+            2.131054447963834
+          ],
+          [
+            "sttl",
+            1.3263583183288574
+          ],
+          [
+            "response_body_len",
+            1.1021761894226074
+          ],
+          [
+            "dmean",
+            0.7101835608482361
+          ]
+        ],
+        "lime_top": [
+          [
+            "sttl",
+            -0.7399719366770161
+          ],
+          [
+            "dur",
+            -0.09067162651735867
+          ],
+          [
+            "sbytes",
+            0.04115767868219152
+          ],
+          [
+            "response_body_len",
+            -0.038750025445280084
+          ],
+          [
+            "dload",
+            0.022732551661135077
+          ]
+        ],
+        "lime_fidelity": 0.7785590209189259
+      },
+      {
+        "outcome": "TP",
+        "row": 50302,
+        "true": 1,
+        "pred": 1,
+        "probability": 0.9992586970329285,
+        "shap_top": [
+          [
+            "proto",
+            -2.993800103664398
+          ],
+          [
+            "service",
+            1.9667041078209877
+          ],
+          [
+            "response_body_len",
+            1.359801173210144
+          ],
+          [
+            "sttl",
+            1.335726261138916
+          ],
+          [
+            "ct_srv_src",
+            0.8797332644462585
+          ]
+        ],
+        "lime_top": [
+          [
+            "sttl",
+            -0.7150394901613814
+          ],
+          [
+            "dur",
+            -0.08822323688581989
+          ],
+          [
+            "service",
+            0.07164284626184414
+          ],
+          [
+            "smean",
+            -0.0400307001530295
+          ],
+          [
+            "dttl",
+            0.032903388588556466
+          ]
+        ],
+        "lime_fidelity": 0.7554275273224802
+      }
+    ]
+  }
+}
